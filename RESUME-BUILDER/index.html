@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container, .preview-container {
+            flex: 1;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .resume {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            color: black;
+            min-height: 450px;
+            font-size: 1rem;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Professional Resume Builder</h1>
+    <div class="container">
+        <div class="form-container">
+            <h2>Enter Your Details</h2>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea id="skills"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Work Experience</label>
+                <textarea id="experience"></textarea>
+            </div>
+            <button class="btn" onclick="updateResume()">Generate Resume</button>
+            <button class="btn" onclick="printResume()">Download PDF</button>
+        </div>
+        <div class="preview-container">
+            <h2>Resume Preview</h2>
+            <div class="resume fade-in" id="resumePreview">
+                <h2 id="rName">Your Name</h2>
+                <p><strong>Email:</strong> <span id="rEmail">your.email@example.com</span></p>
+                <p><strong>Phone:</strong> <span id="rPhone">000-000-0000</span></p>
+                <p><strong>Skills:</strong></p>
+                <p id="rSkills">Your skills will appear here...</p>
+                <p><strong>Work Experience:</strong></p>
+                <p id="rExperience">Your experience will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateResume() {
+            document.getElementById("rName").innerText = document.getElementById("name").value || "Your Name";
+            document.getElementById("rEmail").innerText = document.getElementById("email").value || "your.email@example.com";
+            document.getElementById("rPhone").innerText = document.getElementById("phone").value || "000-000-0000";
+            document.getElementById("rSkills").innerText = document.getElementById("skills").value || "Your skills will appear here...";
+            document.getElementById("rExperience").innerText = document.getElementById("experience").value || "Your experience will appear here...";
+        }
+
+        function printResume() {
+            let printContents = document.getElementById("resumePreview").innerHTML;
+            let originalContents = document.body.innerHTML;
+            document.body.innerHTML = `<div style='padding: 20px;'>${printContents}</div>`;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+</body>
+</html>
