@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 500px;
+    animation: slideUp 1s ease forwards;
+    transform: translateY(20px);
+    opacity: 0;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 2s ease;
+  }
+  
+  input {
+    padding: 12px 15px;
+    width: 80%;
+    max-width: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transition: 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #00c9ff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    border: none;
+    border-radius: 14px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(146, 254, 157, 0.5);
+  }
+  
+  .output-box {
+    margin-top: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    min-height: 40px;
+    color: #00ffe7;
+    animation: fadeIn 1s ease;
+    transition: 0.3s ease-in-out;
+  }
+  
